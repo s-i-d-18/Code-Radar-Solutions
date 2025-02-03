@@ -4,5 +4,5 @@ int main(){
     char two[100];
 
     scanf("%s %s", &one, &two);
-    printf("You entered: ", one, two);
+    printf("You entered: %s %s", one, two);
 }

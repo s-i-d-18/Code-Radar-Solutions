@@ -3,6 +3,6 @@ int main(){
     char one = [100];
     char two = [100];
 
-    scanf("%s %s", &one &two);
+    scanf("%s %s", &one, &two);
     printf("You entered: ", one, two);
 }

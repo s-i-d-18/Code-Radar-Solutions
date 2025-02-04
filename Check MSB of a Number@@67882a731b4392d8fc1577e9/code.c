@@ -9,12 +9,13 @@ int main(){
         t = t*10 + r;
         num = num/2;
     }
+    printf("%d", t);
 
-    if(t%10 == 1){
-        printf("Set");
-    }
-    else{
-        printf("Not Set");
-    }
+    // if(t%10 == 1){
+    //     printf("Set");
+    // }
+    // else{
+    //     printf("Not Set");
+    // }
 
 }

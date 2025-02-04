@@ -8,6 +8,6 @@ int main(){
     if(l>=97 && l<=122)
     printf("Lowercase");
     
-    else
+    else if(l>=65 && l<=90)
     printf("Uppercase");
 }

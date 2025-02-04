@@ -4,11 +4,11 @@ int main(){
     scanf("%d", &num);
     int t = 0;
 
-    do{
+    while(num>0){
         int r = num%2;
         t = t*10 + r;
         num = num/2;
-    }while(num>0)
+    }
     printf("%d", t);
 
     // if(t%10 == 1){

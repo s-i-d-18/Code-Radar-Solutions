@@ -1,11 +1,11 @@
 #include <stdio.h>
 int main(){
     char letter;
-    scanf("%d", &letter);
+    scanf("%c", &letter);
 
-    int l = (letter);
+    // int l = (letter);
 
-    if(l>='A' && l<='Z')
+    if(letter>='A' && letter<='Z')
     printf("Upercase");
     
     else

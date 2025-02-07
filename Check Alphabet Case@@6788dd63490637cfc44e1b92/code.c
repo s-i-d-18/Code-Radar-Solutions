@@ -5,7 +5,7 @@ int main(){
 
     int l = (letter);
 
-    if(l>='A' && l<='X')
+    if(l>='A' && l<='Z')
     printf("Upercase");
     
     else

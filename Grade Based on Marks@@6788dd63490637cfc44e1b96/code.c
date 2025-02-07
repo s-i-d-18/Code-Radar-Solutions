@@ -12,4 +12,5 @@ int main(){
     printf("D");
     else
     printf("F");
+    return 0;
 }

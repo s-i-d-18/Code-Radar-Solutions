@@ -5,9 +5,9 @@ int main(){
 
     int l = (letter);
 
-    if(l>=97 && l<=122)
-    printf("Lowercase");
+    if(l>='A' && l<='X')
+    printf("Upercase");
     
     else
-    printf("Uppercase");
+    printf("Lowercase");
 }

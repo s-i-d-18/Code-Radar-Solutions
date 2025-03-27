@@ -1,31 +1,23 @@
-#include <stdio.h>;
+void trackPlayerRanks(int ranked[], int n, int player[], int m, int result[]) {
+    // Step 1: Create a new array for unique ranks
+    int uniqueRanks[20000];
+    int uniqueCount = 0;
 
-void main(){
-    int n;
-    scanf("%d", &n);
-
-    int score[n];
-    for(int i = 0; i<n; i++){
-        scanf("%d", &score[i]);
+    // Get unique scores from ranked
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || ranked[i] != ranked[i - 1]) {
+            uniqueRanks[uniqueCount++] = ranked[i];
+        }
     }
 
-    int m;
-    scanf("%d", &m);
+    // Step 2: Determine ranks for each player score
+    int rankIndex = uniqueCount - 1;
 
-    int marray[m];
-    for(int i = 0; i<m; i++){
-        scanf("%d", &marray[i]);
-    }
-
-    for(int i = 0; i<m; i++){
-            int rank = 1;
-        for(int j = 0; j<n; j++){
-            int temp = marray[i];
-            if(temp < score[j]){
-                rank = rank + 1;
-            }
-       }
-       printf("%d", rank);
-       printf("\n");
+    for (int i = 0; i < m; i++) {
+        while (rankIndex >= 0 && player[i] >= uniqueRanks[rankIndex]) {
+            rankIndex--;
+        }
+        // Rank is index + 2 because we start counting ranks from 1
+        result[i] = rankIndex + 2;
     }
 }

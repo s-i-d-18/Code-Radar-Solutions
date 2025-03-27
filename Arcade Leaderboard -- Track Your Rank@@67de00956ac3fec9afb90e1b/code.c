@@ -18,9 +18,9 @@ void main(){
     }
 
     for(int i = 0; i<m; i++){
+            int rank = 1;
         for(int j = 0; j<n; j++){
             int temp = marray[i];
-            int rank = 1;
             if(temp < score[j]){
                 rank = rank + 1;
             }

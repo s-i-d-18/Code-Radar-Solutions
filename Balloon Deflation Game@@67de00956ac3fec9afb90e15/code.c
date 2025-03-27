@@ -1,28 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+// Comparator function for sorting
 int compare(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b);  // Sorting in ascending order
+    return (*(int*)a - *(int*)b); // Ascending order sort
 }
 
 int main() {
     int n;
-    scanf("%d", &n);  // Read number of balloons
+    scanf("%d", &n);  // Read the number of balloons
 
     int balloons[n];
+    
+    // Read the air values into the array
     for (int i = 0; i < n; i++) {
-        scanf("%d", &balloons[i]);  // Read balloon air values
+        scanf("%d", &balloons[i]);
     }
 
-    // Sort the array
+    // Sort the array in ascending order
     qsort(balloons, n, sizeof(int), compare);
 
-    // Print count of remaining balloons at each round
+    // Print count of remaining balloons at each unique positive value
     int remaining = n;
-    for (int i = 0; i < n; i++) {
-        if (balloons[i] > 0) {  // Only print if a new positive value is found
+    printf("%d\n", remaining); // First print the total count
+
+    for (int i = 1; i < n; i++) {
+        if (balloons[i] != balloons[i - 1]) { // Print only when value changes
+            remaining = n - i;
             printf("%d\n", remaining);
-            remaining = n - (i + 1);
         }
     }
 

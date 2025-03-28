@@ -19,41 +19,42 @@ int main()
         scanf("%d", &init_air[i]);
     }
 
-    int min = -1; // Initialize min with -1 to ensure proper min detection
-
-    for (int i = 0; i < n; i++) // loop for counting the 'number' variable
+    while (1) // Run until all balloons are empty
     {
         max = 0;
-        min = -1;
+        int min = __INT_MAX__; // Set min to a very large value
+
         number = 0;  // Reset number count for each iteration
 
-        for (int j = 0; j < n; j++) // to find max and min
+        for (int j = 0; j < n; j++) // Find max and min
         {
-            if (max <= init_air[j])
+            if (init_air[j] > max)
             {
                 max = init_air[j]; // max value
             }
-            if ((min == -1 || min > init_air[j]) && init_air[j] > 0)
+            if (init_air[j] > 0 && init_air[j] < min)
             {
                 min = init_air[j]; // min value
             }
         }
 
-        for(int j = 0; j < n; j++)  // Fixed uninitialized loop variable
+        if (max == 0) // Stop loop if all balloons are empty
+            break;
+
+        for (int j = 0; j < n; j++) // Count non-zero balloons
         {
-            if(init_air[j] > 0)
+            if (init_air[j] > 0)
                 number++;
         }
+
         printf("%d\n", number);
 
-        for (int j = 0; j < n; j++)
+        for (int j = 0; j < n; j++) // Reduce air by min
         {
-            if(init_air[j] > 0)
+            if (init_air[j] > 0)
                 init_air[j] -= min;
         }
-
-        if (max == 0) // Stop loop if max is 0
-            break;
     }
+
     return 0;
 }

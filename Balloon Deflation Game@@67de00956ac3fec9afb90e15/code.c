@@ -1,35 +1,50 @@
 #include <stdio.h>
-#include <stdlib.h>
 
-// Comparator function for sorting
-int compare(const void *a, const void *b) {
-    return (*(int*)a - *(int*)b); // Ascending order sort
-}
+void main()
+{
+    int n; // number of balloons
+    scanf("%d", &n);
 
-int main() {
-    int n;
-    scanf("%d", &n);  // Read the number of balloons
+    int init_air[n]; // array containin the initial air in n balloons
+    int number = 0;  // count of balloons with air more than 0
+    int max = 0;     // to check the maximum value of air filled in the array
 
-    int balloons[n];
-    
-    // Read the air values into the array
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &balloons[i]);
+    for (int i = 0; i < n; i++) // loop for input of init_air
+    {
+        scanf("%d", init_air[i]);
     }
 
-    // Sort the array in ascending order
-    qsort(balloons, n, sizeof(int), compare);
+    int min = init_air[0]; // to subtract from the array elements
 
-    // Print count of remaining balloons at each unique positive value
-    int remaining = n;
-    printf("%d\n", remaining); // First print the total count
+    for (int i = 0; i < n; i++) // loop for counting the 'number' variable
+    {
 
-    for (int i = 1; i < n; i++) {
-        if (balloons[i] != balloons[i - 1]) { // Print only when value changes
-            remaining = n - i;
-            printf("%d\n", remaining);
+        for (int j = 0; j < n; j++) // to find max and min
+        {
+            if (max <= init_air[j])
+            {
+                max = init_air[j]; // max value
+            }
+            if (min >= init_air[j] && init_air[j] > 0)
+            {
+                min = init_air[j]; // min value
+            }
         }
-    }
 
-    return 0;
+        for(int j; j<n; j++){
+            if(init_air[j]>0)
+            number++;
+        }
+        printf("%d", number);
+        printf("\n");
+
+        for (int j = 0; j < n; j++)
+        {
+            init_air[j] = init_air[j] - min;
+        }
+
+        if(max == 0)
+        break;
+        
+    }
 }

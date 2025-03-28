@@ -11,7 +11,7 @@ int main()
 
     for (int i = 0; i < n; i++) // loop for input of init_air
     {
-        scanf("%d", init_air[i]);
+        scanf("%d", &init_air[i]);
     }
 
     int min = init_air[0]; // to subtract from the array elements

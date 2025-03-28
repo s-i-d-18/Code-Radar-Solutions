@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void main()
+int main()
 {
     int n; // number of balloons
     scanf("%d", &n);
@@ -47,4 +47,5 @@ void main()
         break;
         
     }
+    return 0;
 }

@@ -27,6 +27,7 @@ void main(){
         }
         else{
             b = 0;
+            break;
         }
     }
 

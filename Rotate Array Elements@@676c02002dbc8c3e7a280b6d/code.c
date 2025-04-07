@@ -3,9 +3,9 @@
 
 void main(){
     int n;
-    scanf("%D", &n);
+    scanf("%d", &n);
     int arr[n];
-    for(int i = 0; i<n;l i++){
+    for(int i = 0; i<n;i++){
         scanf("%d", arr[i]);
     }
     int a;

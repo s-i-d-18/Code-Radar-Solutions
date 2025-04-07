@@ -8,18 +8,22 @@ void main(){
     for(int i = 0; i<n;i++){
         scanf("%d", &arr[i]);
     }
+    
+    
     int a;
-    scanf("%d", &n);
+    scanf("%d", &a);
 
     int temp[n];
     for(int i = 0; i<a; i++){
-        temp[i] = arr[n-a];
+        temp[i] = arr[n-a+i];
     }
     for(int i = a; i<n; i++){
         temp[i] = arr[i-a];
     }
-
+    
     for(int i = 0; i<n; i++){
-        printf("%d ", arr[i]);
+        printf("%d ", temp[i]);
     }
+
+    
 }
